@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="login-container">
+    <h1>Connexion</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <div class="social-login">
+        <h2>Ou connectez-vous avec</h2>
+        <a href="{% url 'account_login' %}" class="btn-google"><i class="fab fa-google"></i> Google</a>
+        <a href="{% url 'account_login' %}" class="btn-github"><i class="fab fa-github'></i> GitHub</a>
+    </div>
+</div>
+{% endblock %}
